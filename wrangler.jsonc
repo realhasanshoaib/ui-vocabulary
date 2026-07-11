@@ -1,6 +1,7 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "ui-vocabulary",
+  "account_id": "5281943bd26d5bdcf4c3915606cd6bfb",
   "compatibility_date": "2026-07-01",
   "assets": {
     "directory": "./dist",

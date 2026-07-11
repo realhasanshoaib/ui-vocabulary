@@ -11,46 +11,32 @@
     font-family: "Bricolage Grotesque", sans-serif;
     display: flex; flex-direction: column; align-items: center; justify-content: center;
     position: relative;
+    border-top: 10px solid #211e33;
   }
   .kicker {
     font-family: "IBM Plex Mono", monospace; font-size: 20px; font-weight: 500;
-    letter-spacing: 0.04em; color: #5c5870;
-    border: 2px solid #e9e0d2; background: #fff; border-radius: 999px;
-    padding: 9px 24px; margin-bottom: 34px;
+    letter-spacing: 0.14em; text-transform: uppercase; color: #5c5870;
+    margin-bottom: 36px;
   }
-  h1 { font-size: 104px; font-weight: 800; letter-spacing: -0.03em; line-height: 1; text-align: center; }
-  h1 em {
-    font-style: italic; font-weight: 700;
-    background: linear-gradient(92deg, #8b5cf6, #ff5d73 55%, #ff9838);
-    -webkit-background-clip: text; background-clip: text; color: transparent;
-    padding-right: 0.06em;
-  }
-  .sub { margin-top: 30px; font-size: 27px; font-weight: 500; color: #5c5870; }
+  h1 { font-size: 116px; font-weight: 750; letter-spacing: -0.028em; line-height: 1.02; text-align: center; }
+  h1 em { font-style: normal; color: #ff5d73; }
+  .sub { margin-top: 32px; font-size: 29px; font-weight: 500; color: #5c5870; }
   .sub b { color: #211e33; }
-  .chip {
-    position: absolute;
-    font-family: "IBM Plex Mono", monospace; font-size: 21px; font-weight: 500;
-    background: #fff; border: 2.5px solid var(--c); border-radius: 999px;
-    padding: 10px 22px; box-shadow: 5px 5px 0 var(--c);
-  }
-  .c1 { --c: #4d7cfe; top: 60px;  left: 64px;   transform: rotate(-7deg); }
-  .c2 { --c: #10b981; bottom: 150px; left: 48px; transform: rotate(4deg); }
-  .c3 { --c: #ff5d73; top: 60px;  right: 70px;  transform: rotate(6deg); }
-  .c4 { --c: #eab308; bottom: 150px; right: 46px; transform: rotate(-4deg); }
+  .dots { display: flex; gap: 14px; margin-top: 44px; }
+  .dots span { width: 14px; height: 14px; border-radius: 50%; }
   .url {
-    position: absolute; bottom: 30px; left: 0; right: 0; text-align: center;
-    font-family: "IBM Plex Mono", monospace; font-size: 20px; color: #5c5870;
+    position: absolute; bottom: 34px; left: 0; right: 0; text-align: center;
+    font-family: "IBM Plex Mono", monospace; font-size: 19px; color: #5c5870;
   }
 </style>
 </head>
 <body>
-  <span class="chip c1">kerning</span>
-  <span class="chip c2">affordance</span>
-  <span class="chip c3">easing</span>
-  <span class="chip c4">empty state</span>
-  <div class="kicker">✦ a field guide for building UI with AI agents</div>
-  <h1>Speak fluent <em>interface.</em></h1>
+  <div class="kicker">A field guide for building UI with AI agents</div>
+  <h1>Speak fluent<br><em>interface.</em></h1>
   <p class="sub"><b>133 design terms</b>, each with a prompt for your agent</p>
+  <div class="dots">
+    <span style="background:#4d7cfe"></span><span style="background:#ff5d73"></span><span style="background:#8b5cf6"></span><span style="background:#10b981"></span><span style="background:#ff9838"></span><span style="background:#2fa8e0"></span><span style="background:#ec4aa8"></span><span style="background:#eab308"></span><span style="background:#84a812"></span><span style="background:#0d9d9d"></span>
+  </div>
   <p class="url">ui-vocab.hasanshoaib.com</p>
 </body>
 </html>

@@ -20,7 +20,7 @@ function termCard(term, catSlug) {
   const id = `${catSlug}-${slugify(term.t)}`;
   const search = esc(`${term.t} ${term.d} ${term.s}`.toLowerCase());
   return `
-        <article class="card reveal" id="${id}" data-search="${search}">
+        <article class="card" id="${id}" data-search="${search}">
           <h3 class="card-term">${esc(term.t)}</h3>
           <p class="card-def">${esc(term.d)}</p>
           <div class="card-say">
@@ -39,7 +39,7 @@ function termCard(term, catSlug) {
 function categorySection(cat, i) {
   return `
     <section class="cat" id="${cat.slug}" style="--cat: var(--cat-${i + 1})" aria-labelledby="h-${cat.slug}">
-      <header class="cat-head reveal">
+      <header class="cat-head">
         <div class="cat-title">
           <span class="cat-num" aria-hidden="true">${num(i)}</span>
           <h2 id="h-${cat.slug}">${esc(cat.name)}</h2>
@@ -72,19 +72,8 @@ function jsonLd(categories) {
   });
 }
 
-const heroChips = [
-  ["kerning", "1"], ["affordance", "6"], ["easing", "7"], ["whitespace", "4"],
-  ["bento grid", "8"], ["empty state", "6"], ["type scale", "2"], ["stagger", "7"],
-  ["hue", "3"], ["breakpoint", "1"], ["focus ring", "6"], ["elevation", "5"],
-];
-
 export function renderPage(categories) {
   const total = categories.reduce((n, c) => n + c.terms.length, 0);
-  const marquee = categories
-    .flatMap((c) => c.terms.map((t) => t.t))
-    .filter((_, i) => i % 3 === 0)
-    .map((t) => `<span>${esc(t)}</span>`)
-    .join('<span class="mq-star" aria-hidden="true">✦</span>');
 
   return `<!doctype html>
 <html lang="en">
@@ -113,7 +102,6 @@ export function renderPage(categories) {
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/styles.css">
-  <script>document.documentElement.classList.add("js")</script>
   <script type="application/ld+json">${jsonLd(categories)}</script>
 </head>
 <body>
@@ -130,39 +118,34 @@ export function renderPage(categories) {
     </div>
     <a class="gh-link" href="${SITE.repo}" target="_blank" rel="noopener">
       <svg width="18" height="18" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
-      <span>Star it</span>
+      <span>GitHub</span>
     </a>
   </header>
 
   <main>
     <section class="hero">
-      <div class="hero-chips" aria-hidden="true">${heroChips
-        .map(([t, c], i) => `<span class="chip chip-${i + 1}" style="--chip: var(--cat-${c})">${esc(t)}</span>`)
-        .join("")}</div>
-      <p class="hero-kicker reveal">A field guide for people who build with AI agents</p>
-      <h1 class="reveal">Speak fluent<br><em>interface.</em></h1>
-      <p class="hero-sub reveal">${total} design terms in plain English — each with a prompt you can hand straight to your agent. Because <span class="strike">“make it pop”</span> isn’t a spec.</p>
-      <div class="hero-cta reveal">
-        <a class="btn btn-primary" href="#vocab">Browse the vocabulary <span aria-hidden="true">↓</span></a>
-        <a class="btn btn-ghost" href="${SITE.repo}" target="_blank" rel="noopener">Open source ↗</a>
+      <p class="hero-kicker">A field guide for people who build with AI agents</p>
+      <h1>Speak fluent<br><em>interface.</em></h1>
+      <p class="hero-sub">${total} design terms in plain English — each with a prompt you can hand straight to your agent. Because <span class="strike">“make it pop”</span> isn’t a spec.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#vocab">Browse the vocabulary</a>
+        <a class="btn btn-ghost" href="${SITE.repo}" target="_blank" rel="noopener">View source</a>
       </div>
     </section>
 
-    <div class="marquee" aria-hidden="true"><div class="marquee-track">${marquee}<span class="mq-star">✦</span>${marquee}<span class="mq-star">✦</span></div></div>
-
     <section class="why" aria-label="Why vocabulary matters">
-      <div class="why-card reveal" style="--cat: var(--cat-2)">
-        <span class="why-emoji" aria-hidden="true">🎯</span>
+      <div class="why-card" style="--cat: var(--cat-2)">
+        <span class="why-num" aria-hidden="true">01</span>
         <h2>Precision beats vibes</h2>
-        <p>“Tighten the leading, mute the neutrals, add a hover lift” lands on the first try. “Make it cleaner” gets you five rounds of almost. Naming the thing <em>is</em> the skill.</p>
+        <p>“Tighten the leading, mute the neutrals, soften the shadows” lands on the first try. “Make it cleaner” gets you five rounds of almost. Naming the thing <em>is</em> the skill.</p>
       </div>
-      <div class="why-card reveal" style="--cat: var(--cat-4)">
-        <span class="why-emoji" aria-hidden="true">🤖</span>
+      <div class="why-card" style="--cat: var(--cat-4)">
+        <span class="why-num" aria-hidden="true">02</span>
         <h2>Agents know these words</h2>
         <p>Models have read decades of design writing. Use the exact term and you summon all of it — the conventions, the ratios, the edge cases — without explaining a thing.</p>
       </div>
-      <div class="why-card reveal" style="--cat: var(--cat-3)">
-        <span class="why-emoji" aria-hidden="true">👁️</span>
+      <div class="why-card" style="--cat: var(--cat-3)">
+        <span class="why-num" aria-hidden="true">03</span>
         <h2>Taste is trainable</h2>
         <p>Once you can name what you’re looking at, you can’t unsee it. Vocabulary is how “something feels off” becomes “the vertical rhythm is broken” — and then a fix.</p>
       </div>
@@ -184,7 +167,6 @@ ${categories.map(categorySection).join("\n")}
   </main>
 
   <footer class="footer">
-    <p class="footer-spark" aria-hidden="true">✦</p>
     <p><strong>UI Vocabulary</strong> is open source under MIT — <a href="${SITE.repo}" target="_blank" rel="noopener">fork it, add terms, translate it</a>.</p>
     <p>Made by <a href="${SITE.authorUrl}" target="_blank" rel="noopener">${esc(SITE.author)}</a>, with an agent that knows what a focus ring is.</p>
   </footer>

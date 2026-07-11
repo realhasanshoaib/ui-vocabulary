@@ -1,18 +1,3 @@
-// reveal on scroll, staggered per batch
-const revealed = new IntersectionObserver(
-  (entries) => {
-    let i = 0;
-    for (const e of entries) {
-      if (!e.isIntersecting) continue;
-      e.target.style.setProperty("--stagger", `${Math.min(i++ * 60, 360)}ms`);
-      e.target.classList.add("in");
-      revealed.unobserve(e.target);
-    }
-  },
-  { rootMargin: "0px 0px -8% 0px" }
-);
-document.querySelectorAll(".reveal").forEach((el) => revealed.observe(el));
-
 // copy "say it" prompts
 document.querySelectorAll(".copy-btn").forEach((btn) => {
   btn.addEventListener("click", async () => {

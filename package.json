@@ -1,0 +1,18 @@
+{
+  "name": "ui-vocabulary",
+  "version": "1.0.0",
+  "private": true,
+  "description": "133 UI and design terms in plain English, each with a copy-paste prompt for your AI agent.",
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "dev": "node build.mjs && npx serve dist",
+    "deploy": "node build.mjs && wrangler deploy"
+  },
+  "author": "Hasan Shoaib (https://hasanshoaib.com)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hhushhas/ui-vocabulary.git"
+  }
+}

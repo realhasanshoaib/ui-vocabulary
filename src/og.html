@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; box-sizing: border-box; }
+  body {
+    width: 1200px; height: 630px; overflow: hidden;
+    background: #fff8ee; color: #211e33;
+    font-family: "Bricolage Grotesque", sans-serif;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    position: relative;
+  }
+  .kicker {
+    font-family: "IBM Plex Mono", monospace; font-size: 20px; font-weight: 500;
+    letter-spacing: 0.04em; color: #5c5870;
+    border: 2px solid #e9e0d2; background: #fff; border-radius: 999px;
+    padding: 9px 24px; margin-bottom: 34px;
+  }
+  h1 { font-size: 104px; font-weight: 800; letter-spacing: -0.03em; line-height: 1; text-align: center; }
+  h1 em {
+    font-style: italic; font-weight: 700;
+    background: linear-gradient(92deg, #8b5cf6, #ff5d73 55%, #ff9838);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    padding-right: 0.06em;
+  }
+  .sub { margin-top: 30px; font-size: 27px; font-weight: 500; color: #5c5870; }
+  .sub b { color: #211e33; }
+  .chip {
+    position: absolute;
+    font-family: "IBM Plex Mono", monospace; font-size: 21px; font-weight: 500;
+    background: #fff; border: 2.5px solid var(--c); border-radius: 999px;
+    padding: 10px 22px; box-shadow: 5px 5px 0 var(--c);
+  }
+  .c1 { --c: #4d7cfe; top: 60px;  left: 64px;   transform: rotate(-7deg); }
+  .c2 { --c: #10b981; bottom: 150px; left: 48px; transform: rotate(4deg); }
+  .c3 { --c: #ff5d73; top: 60px;  right: 70px;  transform: rotate(6deg); }
+  .c4 { --c: #eab308; bottom: 150px; right: 46px; transform: rotate(-4deg); }
+  .url {
+    position: absolute; bottom: 30px; left: 0; right: 0; text-align: center;
+    font-family: "IBM Plex Mono", monospace; font-size: 20px; color: #5c5870;
+  }
+</style>
+</head>
+<body>
+  <span class="chip c1">kerning</span>
+  <span class="chip c2">affordance</span>
+  <span class="chip c3">easing</span>
+  <span class="chip c4">empty state</span>
+  <div class="kicker">✦ a field guide for building UI with AI agents</div>
+  <h1>Speak fluent <em>interface.</em></h1>
+  <p class="sub"><b>133 design terms</b>, each with a prompt for your agent</p>
+  <p class="url">ui-vocab.hasanshoaib.com</p>
+</body>
+</html>

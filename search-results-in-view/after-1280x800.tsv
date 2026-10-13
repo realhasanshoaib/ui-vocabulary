@@ -1,0 +1,7 @@
+start	query	count_line_px_below_bars	count_line_visible	first_match_px_below_bars	first_match_visible
+top	kerning	17	yes	185	yes
+top	shadow	17	yes	185	yes
+top	color	28	yes	196	yes
+motion	kerning	28	yes	196	yes
+motion	shadow	17	yes	185	yes
+motion	color	28	yes	196	yes

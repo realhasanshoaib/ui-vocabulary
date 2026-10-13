@@ -255,6 +255,7 @@ a { color: inherit; }
 .search-status {
   max-width: 1120px; margin: 28px auto -36px; padding: 0 24px;
   font-family: var(--font-mono); font-size: 13px; color: var(--ink-soft);
+  scroll-margin-top: 12px;
 }
 .no-results { max-width: 480px; margin: 70px auto 30px; padding: 0 24px; text-align: center; color: var(--ink-soft); }
 .no-results-big { font-family: var(--font-mono); font-size: 34px; margin: 0 0 6px; color: var(--ink-soft); }

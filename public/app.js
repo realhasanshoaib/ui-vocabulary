@@ -40,6 +40,8 @@ function applySearch() {
   status.hidden = false;
   status.textContent = `${hits} ${hits === 1 ? "term matches" : "terms match"} “${input.value.trim()}”`;
   noResults.hidden = hits > 0;
+  // matches can sit anywhere on the page, so bring the top of the results under the sticky bars
+  status.scrollIntoView();
 }
 
 input.addEventListener("input", applySearch);
